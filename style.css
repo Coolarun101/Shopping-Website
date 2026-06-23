@@ -3,354 +3,564 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* body{background-color: black;} */
 
-#discount
-{
-  background-color:#f4b800;
-  text-align: center;
-  height: 4vh;
-  padding: 6px;
-}
-
-#navbar
-{
-  /* height: 12vh; */
-height: 13vh;
-  background-color: burlywood;
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(15, 1fr);
-  gap: 50px;
+html {
   font-size: 16px;
-  font-family: Poppins;
-  padding-top: 6.5px;
 }
 
-#logo 
-{
-  grid-column-start: 2;
-  grid-column-end: 3;
-  /* border: 2px solid red; */
-  border-radius: 50%;
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+#discount {
+  background-color: #f4b800;
   text-align: center;
-  /* border: 2px solid yellow; */
-    animation: motion 2s infinite ease;
-  
+  padding: 8px 10px;
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight: 600;
 }
 
-@keyframes motion
-{
-    from{
-      transform:translateY(-0.5px);
-    /* background-color: rgb(164, 3, 244); */
-  }
-    to{transform:translateY(0.5px);
-     /* background-color: hotpink; */
-    }
-}
-/* #logoImage {
-} */
-
-#menu 
-{
-  /* border: 2px solid yellow; */
-  grid-column-start: 5;
-  grid-column-end: 11;
-}
-
-#menu ul 
-{
+/* ============ NAVBAR RESPONSIVE ============ */
+#navbar {
+  background-color: black;
   display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  flex-direction: row;
-  /* border: 2px solid red; */
-  color: white;
-  list-style: none;
-  margin: 25px; 
-}
-
-#menu a
-{
-  text-decoration: none;
-  color: white; 
-}
-
-#login
-{
-  /* border: 2px solid yellow; */
-  grid-column-start: 12;
-  grid-column-end: 15;
-  gap: 5px;
-  /* border: 2px solid green; */
-}
-
-#login ul 
-{
-  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  align-content: center;
-  flex-direction: row;
-  /* border: 2px solid red; */
-  margin: 25px;
+  padding: 10px 15px;
+  gap: 15px;
 }
 
-.mainCont
-{
-  /* border: 1px solid red; */
-  /* gap: 20px; */
-  display: grid;
-  justify-items: center;
-  width: 98vw;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  margin: 10px;
-  gap: 30px;
+#logo {
+  flex: 0 0 auto;
+  animation: motion 2s infinite ease;
 }
 
-.mainContHeading{
-  font-size:28px;
- font-family: "Poppins", sans-serif;
+#logo img {
+  height: 60px;
+  width: auto;
+}
+
+@keyframes motion {
+  from {
+    transform: translateY(-0.5px);
+  }
+  to {
+    transform: translateY(0.5px);
+  }
+}
+
+#menu {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+#menu ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px;
+}
+
+#menu a {
+  text-decoration: none;
+  color: white;
+  font-size: clamp(12px, 2vw, 16px);
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+#menu a:hover {
+  color: #f4b800;
+}
+
+#login {
+  flex: 0 1 auto;
+}
+
+#login ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 15px;
+}
+
+#login a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+#login a:hover {
+  color: #f4b800;
+}
+
+/* ============ BANNER ============ */
+.box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============ MAIN CONTAINER HEADINGS ============ */
+.mainContHeading,
+.mainCont2Heading,
+.mainCont3Heading {
+  font-size: clamp(20px, 5vw, 28px);
   font-weight: 700;
   text-align: center;
-  margin-top: 18px;
-  
+  margin: 20px 10px;
+  padding: 0 10px;
 }
-.image im{
-  /* Add shadows to create the "card" effect */
+
+/* ============ GRID LAYOUTS - RESPONSIVE ============ */
+.mainCont,
+.mainCont2,
+.mainCont3,
+.contHairCare,
+.contCombCare {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  gap: 15px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+/* Mobile First - 1 column */
+.mainCont,
+.contHairCare,
+.contCombCare {
+  grid-template-columns: 1fr;
+}
+
+.mainCont2,
+.mainCont3 {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet - 2 columns */
+@media (min-width: 640px) {
+  .mainCont,
+  .mainCont2,
+  .mainCont3,
+  .contHairCare,
+  .contCombCare {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+/* Desktop - 3 columns */
+@media (min-width: 1024px) {
+  .mainCont,
+  .mainCont2,
+  .mainCont3,
+  .contHairCare {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px;
+  }
+
+  .contCombCare {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .mainCont,
+  .mainCont2,
+  .mainCont3,
+  .contHairCare,
+  .contCombCare {
+    gap: 30px;
+    padding: 40px;
+  }
+}
+
+/* ============ IMAGE CONTAINERS ============ */
+.image,
+.imageT1,
+.imageH1 {
+  width: 100%;
+  text-align: center;
+}
+
+.image img,
+.imageT1 img,
+.imageH1 img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
   box-shadow: 1px 1px 0 0 rgba(245, 246, 247, 0.786);
   transition: 0.3s;
 }
 
-/* On mouse-over, add a deeper shadow */
-.image img:hover {
-  box-shadow: 2px 2px 1px 3px rgba(0, 0, 0, 0.566);
+.image img:hover,
+.imageT1 img:hover,
+.imageH1 img:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.566);
+  transform: scale(1.02);
 }
 
+/* ============ PRODUCT DETAILS ============ */
+.productDetails {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: clamp(12px, 3vw, 16px);
+  margin: 10px 0;
+  color: #333;
+}
 
+.price {
+  font-weight: 700;
+  color: #f4b800;
+  margin: 8px 0;
+}
 
+/* ============ CART BUTTON ============ */
+.CartButton {
+  width: 100%;
+  max-width: 333px;
+  height: 45px;
+  background-color: white;
+  color: #232323;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: clamp(12px, 2vw, 14px);
+}
 
-.mainCont2{
+.CartButton:hover {
+  background-color: #232323;
+  color: white;
+}
+
+.CartButton:active {
+  transform: scale(0.98);
+}
+
+/* ============ FOOTER ============ */
+.mainCont4 {
   display: grid;
-  justify-items: center;
-  width: 95vw;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  
-  gap: 20px;
-  /* margin: 50px 30px; */
-  margin: 30px;
-}
-
- .imageT1 img{
-        height:400px;
-      }
-
-
-.imageT1 span{
-  text-align: center;
-}
-
-
-#insta{
-  position: relative;
-          top: 10px; 
-          left:4px;
-          animation: motion 1s infinite ease-in-out;
-}
-
-@keyframes motion{
-   from{transform: translateY(-4px)}
-    to{transform: translateY(4px)}
-}
-/* 
-#imageParent1
-{
-  grid-row-start: 1;
-  grid-row-end:2 ;
-  grid-column-start: 2;
-  grid-column-end:4;
-  
-}
-
-#imageParent2
-{
-  grid-row-start: 1;
-  grid-row-end:2 ;
-  grid-column-start:4;
-  grid-column-end:6;
-}
-
-#imageParent3
-{
-  grid-row-start: 1;
-  grid-row-end:2 ;
-  grid-column-start: 6;
-  grid-column-end:8;
-}
-
-#imageParent4
-{
-  grid-row-start: 2;
-  grid-row-end:3;
-  grid-column-start: 2;
-  grid-column-end:4;
-}
-
-#imageParent5
-{
-  grid-row-start:2;
-  grid-row-end:3;
-  grid-column-start:4;
-  grid-column-end:6;
-}
-
-#imageParent6
-{
-  grid-row-start:2;
-  grid-row-end:3;
-  grid-column-start: 6;
-  grid-column-end:8;
-} */
-
-.imageT1{
-  text-emphasis: center;
-}
-.mainCont4{
-  padding:20px 0;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-evenly;
+  grid-template-columns: 1fr;
+  padding: 20px 15px;
   background-color: black;
   color: whitesmoke;
-  font-size: 12px;
-   font-family: "Poppins", sans-serif;
-  
+  font-size: clamp(11px, 2vw, 14px);
+  font-family: "Poppins", sans-serif;
+  gap: 30px;
 }
 
-.mainCont4 .foot1 span{
-  color:rgba(245, 245, 245, 0.596);
+@media (min-width: 768px) {
+  .mainCont4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 30px 20px;
+  }
 }
 
-.mainCont4 ul{
+@media (min-width: 1024px) {
+  .mainCont4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 40px 30px;
+  }
+}
+
+.mainCont4 .foot1,
+.mainCont4 .foot2,
+.mainCont4 .foot3,
+.mainCont4 .foot4 {
+  text-align: center;
+}
+
+.mainCont4 .foot1 img {
+  max-width: 100%;
+  height: auto;
+}
+
+.mainCont4 .foot1 span {
+  color: rgba(245, 245, 245, 0.596);
+  display: block;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.mainCont4 h2 {
+  font-size: clamp(14px, 3vw, 18px);
+  margin-bottom: 15px;
+}
+
+.mainCont4 ul {
   list-style: none;
+  margin-top: 10px;
 }
 
-
-
-
-.CartButton{
-
-  width: 333.33px;
-  height:43.6px;
-  background-color: white;
-  color:#232323;
-  
+.mainCont4 li {
+  margin: 8px 0;
 }
 
-
-
-.CartButton:hover{
-background-color: #232323;
-  color:white;
-}
-
-.productDetails{
-text-align: center;
-
-font-family: "Open Sans", sans-serif;
-}
-
-
-
-.foot2 ul li a{
-  list-style: none;
+.foot2 ul li a,
+.foot3 ul li a {
   text-decoration: none;
-  color:rgba(245, 245, 245, 0.596);
-  font-size: 12px;
-   font-family: "Poppins", sans-serif;
+  color: rgba(245, 245, 245, 0.596);
+  transition: 0.3s;
 }
 
-
-.foot3 ul li a{
-  list-style: none;
-  text-decoration: none;
-   color:rgba(245, 245, 245, 0.596);
-   font-size: 12px;
-   font-family: "Poppins", sans-serif;
+.foot2 ul li a:hover,
+.foot3 ul li a:hover,
+.foot2 ul li a:active,
+.foot3 ul li a:active {
+  text-decoration: underline;
+  color: white;
 }
 
-.foot2 ul li a:hover , .foot3 ul li a:hover,.foot2 ul li a:active , .foot3 ul li a:active{
-   text-decoration: underline;
+.foot4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-    
-.contHairCare{
+#a1,
+#a2,
+#a3 {
+  transition: 0.3s;
+  margin: 0 10px;
+}
+
+#a1:hover,
+#a2:hover,
+#a3:hover {
+  transform: scale(1.2);
+}
+
+/* ============ ANIMATION ============ */
+#insta {
+  animation: motion 1s infinite ease-in-out;
+}
+
+/* ============ CONTACT PAGE ============ */
+.contactCont {
+  background-color: #0e0e0e;
+  border-radius: 15px;
+  color: #e3e3e3;
+  padding: 20px;
+  margin: 20px;
   display: grid;
-  justify-items: center;
-  width: 95vw;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .contactCont {
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    margin: 25px;
+    gap: 40px;
+  }
+}
+
+.contDetails h2 {
+  font-size: clamp(18px, 4vw, 24px);
+  margin-bottom: 15px;
+}
+
+.contDetails h3 {
+  font-size: clamp(14px, 3vw, 18px);
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.contDetails p,
+.contDetails div {
+  font-size: clamp(12px, 2vw, 14px);
+  line-height: 1.6;
+}
+
+.googleMap {
+  width: 100%;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .googleMap {
+    height: 400px;
+  }
+}
+
+.mapouter,
+.gmap_canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ============ FORM STYLING ============ */
+.signIn,
+.signUp,
+.track {
+  background-color: #0e0e0e;
+  border-radius: 15px;
+  color: #e3e3e3;
+  padding: 20px;
+  margin: 20px;
+}
+
+@media (min-width: 768px) {
+  .signIn,
+  .signUp,
+  .track {
+    padding: 40px;
+    margin: 60px auto;
+    max-width: 500px;
+  }
+}
+
+.signIn img,
+.signUp img,
+.track img {
+  max-width: 80px;
+  height: auto;
+  display: inline-block;
+}
+
+#signInH,
+#signUpH,
+#trackH {
+  font-size: clamp(24px, 5vw, 38px);
+  margin: 15px 0;
+  display: block;
+}
+
+fieldset {
+  border: none;
+  padding: 15px 0;
+}
+
+legend {
+  font-size: clamp(14px, 3vw, 18px);
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: clamp(12px, 2vw, 14px);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="datetime-local"] {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #f4b800;
+  box-shadow: 0 0 5px rgba(244, 184, 0, 0.3);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  width: 100%;
+  max-width: 150px;
+  padding: 12px 20px;
+  margin: 10px 10px 10px 0;
+  background-color: #f4b800;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: clamp(12px, 2vw, 14px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #d4a000;
+  transform: translateY(-2px);
+}
+
+input[type="reset"] {
+  background-color: #555;
+  color: white;
+}
+
+input[type="reset"]:hover {
+  background-color: #777;
+}
+
+dfn {
+  font-size: clamp(10px, 1.5vw, 12px);
+  color: rgba(227, 227, 227, 0.7);
+  display: block;
+  margin-top: 5px;
+}
+
+/* ============ UTILITY CLASSES ============ */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
   
-  gap: 20px;
-  /* margin: 50px 30px; */
-  margin: 30px;
+  #navbar {
+    flex-direction: column;
+    padding: 10px 5px;
+  }
+
+  #menu ul {
+    gap: 5px;
+  }
+
+  #login ul {
+    gap: 10px;
+  }
 }
 
- .imageH1 img{
-        height:400px;
-      }
+/* Extra small devices */
+@media (max-width: 360px) {
+  #navbar {
+    gap: 10px;
+  }
 
+  .CartButton {
+    max-width: 280px;
+    height: 40px;
+  }
 
-.imageH1 span{
-  text-align: center;
+  .productDetails {
+    font-size: 13px;
+  }
 }
-
-
-
-.contCombCare{
-   display: grid;
-  justify-items: center;
-  width: 95vw;
-  grid-template-rows: repeat(6, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  
-  gap: 20px;
-  /* margin: 50px 30px; */
-  margin: 30px;
-}
-
-
-.mainCont2Heading{
-  font-size:28px;
- font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 18px;
-  
-}
-.mainCont3Heading{
-  font-size:28px;
- font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 18px;
-  
-}
-
-.mainCont3{
-   display: grid;
-  justify-items: center;
-  width: 95vw;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  
-  gap: 20px;
-  /* margin: 50px 30px; */
-  margin: 30px;
-}
-
-
